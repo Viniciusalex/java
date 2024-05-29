@@ -1,6 +1,5 @@
 package med.voll.api.repository;
 
-import io.micrometer.observation.ObservationFilter;
 import med.voll.api.models.Medicos;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;

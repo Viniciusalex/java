@@ -49,4 +49,5 @@ public class MedicosController {
         Medicos medicos = repository.getReferenceById(id);
         medicos.desativarMedico();
     }
+
 }

@@ -1,30 +1,17 @@
 package med.voll.api.dto.pacienteDTO;
 
-import jakarta.validation.Valid;
-import jakarta.validation.constraints.Email;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
-import med.voll.api.dto.enderecoDTO.EnderecoDTO;
+import med.voll.api.models.Enderecos;
+import med.voll.api.models.Paciente;
 
 public record PacienteDTO(
-
-        @NotBlank
+        Long id,
         String nome,
-
-        @NotBlank
         String telefone,
-
-
-        @NotBlank
-        @Email
         String email,
-
-
-        @NotBlank
         String cpf,
-
-        @NotNull
-        @Valid
-        EnderecoDTO endereco
+        Enderecos enderecos
 ) {
+    public PacienteDTO(Paciente paciente) {
+        this(paciente.getId(), paciente.getNome(), paciente.getTelefone(), paciente.getEmail(), paciente.getCpf(), paciente.getEndereco());
+    }
 }

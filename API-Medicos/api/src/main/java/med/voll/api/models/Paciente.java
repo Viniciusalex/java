@@ -6,7 +6,7 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import med.voll.api.dto.pacienteDTO.AtualizacaoPacienteDTO;
-import med.voll.api.dto.pacienteDTO.PacienteDTO;
+import med.voll.api.dto.pacienteDTO.PacienteDadosDTO;
 
 
 @Table(name = "paciente")
@@ -24,17 +24,17 @@ public class Paciente {
     private String email;
     private String telefone;
     private String cpf;
+    private Boolean ativo;
     @Embedded
     private Enderecos endereco;
-    private Boolean ativo;
 
 
-    public Paciente(PacienteDTO pacienteDTO) {
-        this.nome = pacienteDTO.nome();
-        this.email = pacienteDTO.email();
-        this.telefone = pacienteDTO.telefone();
-        this.cpf = pacienteDTO.cpf();
-        this.endereco = new Enderecos(pacienteDTO.endereco());
+    public Paciente(PacienteDadosDTO pacienteDadosDTO) {
+        this.nome = pacienteDadosDTO.nome();
+        this.email = pacienteDadosDTO.email();
+        this.telefone = pacienteDadosDTO.telefone();
+        this.cpf = pacienteDadosDTO.cpf();
+        this.endereco = new Enderecos(pacienteDadosDTO.endereco());
         this.ativo = true;
     }
 
@@ -55,6 +55,10 @@ public class Paciente {
 
     public void desativarPaciente() {
         this.ativo = false;
+    }
+
+    public void ativarMedico() {
+        this.ativo = true;
     }
 }
 

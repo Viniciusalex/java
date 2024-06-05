@@ -70,4 +70,8 @@ public class Medicos {
     public void desativarMedico() {
         this.ativo = false;
     }
+
+    public void ativarMedico() {
+        this.ativo = true;
+    }
 }
